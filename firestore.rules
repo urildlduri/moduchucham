@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 이벤트: 누구나 읽기 가능, 쓰기는 인증된 기업만
+    match /events/{eventId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null
+        && request.auth.uid == resource.data.companyId;
+      allow delete: if false;
+    }
+
+    // 참가자: 기업만 읽기/쓰기, 잠금 후 수정 불가
+    match /events/{eventId}/participants/{participantId} {
+      allow read: if request.auth != null
+        && request.auth.uid == get(/databases/$(database)/documents/events/$(eventId)).data.companyId;
+      allow create: if request.auth != null;
+      // 명단 잠금 후 수정 불가 (status가 locked/live/done이면 거부)
+      allow update, delete: if request.auth != null
+        && !(['locked','live','drawing','done'].hasAny([
+          get(/databases/$(database)/documents/events/$(eventId)).data.status
+        ]));
+    }
+
+    // 증명서: 누구나 읽기 가능 (검증 목적), 시스템만 쓰기
+    match /certificates/{certId} {
+      allow read: if true;
+      allow write: if false; // 서버 사이드 Admin SDK만 허용
+    }
+
+    // 감사 로그: 시스템만 쓰기, 플랫폼 어드민만 읽기
+    match /auditLogs/{logId} {
+      allow read: if request.auth != null
+        && request.auth.token.admin == true;
+      allow write: if false; // Admin SDK만
+    }
+  }
+}

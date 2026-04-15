@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --gold:   #b8922a;
+  --gold2:  #c9a03a;
+  --gold3:  #d4a843;
+  --gold4:  #e8c068;
+  --gold5:  #f3d98a;
+  --gold6:  #faeecb;
+  --gold7:  #fdf8ed;
+  --ivory:  #faf8f3;
+  --ivory2: #f4f0e4;
+  --ivory3: #ede6d2;
+  --ivory4: #e0d5be;
+  --dark:   #14110d;
+  --dark2:  #1e1a13;
+  --dark3:  #28231a;
+  --text:   #1a1512;
+  --text2:  #3d3020;
+  --text3:  #6b5a3e;
+  --text4:  #9a8668;
+  --brown:  #6b5a3e;
+  --brown2: #9a8668;
+  --green:  #1a6b3a;
+  --red:    #c42b1c;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans KR', -apple-system, sans-serif;
+  background: var(--ivory);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: white;
+  border: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--gold);
+  text-decoration: none;
+}
+.btn-gold:hover { background: var(--gold2); }
+.btn-gold:active { transform: scale(0.97); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: 1.5px solid var(--ivory4);
+  color: var(--text2);
+  background: transparent;
+  font-family: 'Noto Sans KR', sans-serif;
+  text-decoration: none;
+}
+.btn-outline:hover { background: var(--ivory2); }
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: white;
+  border: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--dark);
+}
+.btn-dark:hover { background: var(--dark2); }
+
+.card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--ivory3);
+}
+
+.card-hover {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--ivory3);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.card-hover:hover {
+  border-color: var(--gold6);
+  box-shadow: 0 4px 24px rgba(0,0,0,.08);
+  transform: translateY(-2px);
+}
+
+.hash-box {
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  word-break: break-all;
+  line-height: 1.6;
+  background: var(--dark3);
+  color: var(--gold4);
+}
+
+.form-input {
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.15s;
+  background: var(--ivory);
+  border: 1.5px solid var(--ivory3);
+  color: var(--text);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.form-input:focus {
+  border-color: var(--gold3);
+  background: white;
+}
+
+.badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(196,43,28,.1);
+  color: var(--red);
+}
+.badge-soon {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--gold7);
+  color: var(--gold);
+}
+.badge-done {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--ivory2);
+  color: var(--text4);
+}
+.badge-cert {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(26,107,58,.1);
+  color: var(--green);
+}
+.badge-gold {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--gold6);
+  color: var(--gold);
+}
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.8); }
+}
+.animate-live { animation: pulse-live 1.6s ease-in-out infinite; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.35s ease-out forwards; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background: var(--ivory4); border-radius: 3px; }
