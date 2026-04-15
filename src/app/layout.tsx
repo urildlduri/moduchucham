@@ -1,15 +1,32 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { AuthProvider } from '@/lib/auth'
+import BottomNav from '@/components/layout/BottomNav'
 
 export const metadata: Metadata = {
-  title: '모두의 추첨 — 공정한 추첨 방송 플랫폼',
-  description: '수학적으로 검증 가능한 Provably Fair 추첨. 운영자조차 조작할 수 없는 구조.',
+  title: '모두의 추첨',
+  description: '누구도 조작할 수 없는 추첨, 누구나 검증할 수 있는 방송',
+  appleWebApp: { capable: true, statusBarStyle: 'default', title: '모두의 추첨' },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover',
+  themeColor: '#faf8f3',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <AuthProvider>
+          {children}
+          <BottomNav />
+        </AuthProvider>
+      </body>
     </html>
   )
 }

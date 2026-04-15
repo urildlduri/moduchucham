@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { MOCK_EVENTS } from '@/lib/mockData'
 
 export async function GET(req: NextRequest) {
+  // 현재는 목업 데이터 반환 (Firebase 연결 후 실제 데이터로 교체)
   return NextResponse.json({ events: MOCK_EVENTS })
 }
 
