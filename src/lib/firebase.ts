@@ -12,7 +12,6 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID ?? '',
 }
 
-// 빌드 타임에 Firebase 초기화 방지
 const app = typeof window !== 'undefined' || process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
   ? (getApps().length === 0 ? initializeApp(firebaseConfig) : getApp())
   : null
