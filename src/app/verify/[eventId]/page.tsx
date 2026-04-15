@@ -137,7 +137,7 @@ export default function VerifyPage({ params }: { params: { eventId: string } }) 
               <pre className="hash-box" style={{marginTop:'12px',minHeight:'80px',whiteSpace:'pre-wrap',wordBreak:'break-word'}}>
                 {algoLog || 'moduchucham-fair-v1.2\nSHA256(uuid+seed+index) → 정렬 → 상위 N명\n\n[실행 대기 중...]'}
               </pre>
-              <button className="btn-gold" style={{width:'100%',marginTop:'10px',fontSize:'14px',padding:'12px',borderRadius:'12px'}} onClick={runAlgo} disabled={algoRunning}>
+              <button className="btn-primary" style={{width:'100%',marginTop:'10px',fontSize:'14px',padding:'12px',borderRadius:'12px'}} onClick={runAlgo} disabled={algoRunning}>
                 {algoRunning ? '⏳ 실행 중...' : '▶ 브라우저에서 직접 실행'}
               </button>
               {algoResult && <OkBar text="재현 성공 — 당첨자 100% 일치" />}

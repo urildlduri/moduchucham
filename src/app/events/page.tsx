@@ -54,11 +54,11 @@ export default function EventsPage() {
                   </div>
                 </div>
                 <div style={{marginTop:'12px',paddingTop:'12px',borderTop:'1px solid var(--ivory2)',display:'flex',gap:'8px'}}>
-                  {isLive && <button className="btn-gold" style={{flex:1,fontSize:'14px',padding:'11px',borderRadius:'12px'}}>📺 방송 시청하기</button>}
+                  {isLive && <button className="btn-primary" style={{flex:1,fontSize:'14px',padding:'11px',borderRadius:'12px'}}>📺 방송 시청하기</button>}
                   {isDone && <Link href={`/verify/${ev.id}`} className="btn-outline" style={{flex:1,fontSize:'14px',padding:'11px',borderRadius:'12px',textDecoration:'none'}}>🔍 결과 검증하기</Link>}
                   {!isLive && !isDone && (
                     <>
-                      <button className="btn-gold" style={{flex:1,fontSize:'14px',padding:'11px',borderRadius:'12px'}}>🔔 알림 신청</button>
+                      <button className="btn-primary" style={{flex:1,fontSize:'14px',padding:'11px',borderRadius:'12px'}}>🔔 알림 신청</button>
                       <Link href={`/verify/${ev.id}`} className="btn-outline" style={{padding:'11px 14px',borderRadius:'12px',fontSize:'13px',textDecoration:'none'}}>상세</Link>
                     </>
                   )}
