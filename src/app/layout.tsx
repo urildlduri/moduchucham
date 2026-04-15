@@ -23,8 +23,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ko">
       <body>
         <AuthProvider>
-          {children}
-          <BottomNav />
+          <div className="app-shell">
+            {children}
+            <BottomNav />
+          </div>
         </AuthProvider>
       </body>
     </html>
